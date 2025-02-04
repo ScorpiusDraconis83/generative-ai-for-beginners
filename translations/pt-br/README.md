@@ -1,4 +1,3 @@
-
 ![Generative AI For Beginners](../../images/repository-thumbnail.png?WT.mc_id=academic-105485-koreyst)
 
 ### Um curso com 12 lições que ensina tudo o que você precisa saber para começar a criar aplicações de IA Generativa
@@ -14,7 +13,7 @@
 [![GitHub stars](https://img.shields.io/github/stars/microsoft/Generative-AI-For-Beginners.svg?style=social&label=Star)](https://GitHub.com/microsoft/Generative-AI-For-Beginners/stargazers/?WT.mc_id=academic-105485-koreyst)
 
 [![Open in GitHub Codespaces](https://img.shields.io/static/v1?style=for-the-badge&label=GitHub+Codespaces&message=Open&color=lightgrey&logo=github)](https://codespaces.new/microsoft/generative-ai-for-beginners?WT.mc_id=academic-105485-koreyst)
-[![](https://dcbadge.vercel.app/api/server/ByRwuEEgH4)](https://aka.ms/genai-discord?WT.mc_id=academic-105485-koreyst)
+[![](https://dcbadge.limes.pink/api/server/ByRwuEEgH4)](https://aka.ms/genai-discord?WT.mc_id=academic-105485-koreyst)
 
 # Curso - Inteligência Artificial Generativa para Iniciantes
 
@@ -32,11 +31,11 @@ Acesse a [Página de Configuração do Curso](../../00-course-setup/translations
 
 Nós acreditamos que uma das melhores formas de aprender é aprendendo com outras pessoas! Junte-se ao nosso [servidor oficial do Discord de IA](https://aka.ms/genai-discord?WT.mc_id=academic-105485-koreyst) para conhecer e fazer networking com outros alunos(as) que estão fazendo este curso e obter suporte. Quem sabe você pode encontrar seu próximo co-fundador(a) lá!
 
-[![Junte-se ao canal do Discord](https://dcbadge.vercel.app/api/server/ByRwuEEgH4)](https://aka.ms/genai-discord?WT.mc_id=academic-105485-koreyst)
+[![Junte-se ao canal do Discord](https://dcbadge.limes.pink/api/server/ByRwuEEgH4)](https://aka.ms/genai-discord?WT.mc_id=academic-105485-koreyst)
 
-### 🚀 Você é uma startup ou tem uma ideia que deseja lançar? 
+### 🚀 Você é uma startup ou tem uma ideia que deseja lançar?
 
-Visit [Microsoft's Founders Hub](https://aka.ms/genai-foundershub?WT.mc_id=academic-105485-koreyst) where you can apply to receive **free OpenAI credits** and up to **$150k towards Azure's leading AI services**. 
+Visit [Microsoft's Founders Hub](https://aka.ms/genai-foundershub?WT.mc_id=academic-105485-koreyst) where you can apply to receive **free OpenAI credits** and up to **$150k towards Azure's leading AI services**.
 
 Visite o [Microsoft's Founders Hub](https://aka.ms/genai-foundershub?WT.mc_id=academic-105485-koreyst) onde você pode se inscrever para receber **créditos gratuitos da OpenAI** e até **USD 150 mil para os principais serviços de IA da Azure**.
 
@@ -48,7 +47,7 @@ Aqui estão maneiras de contribuir para este curso:
 
 - Envie suas ideias, talvez suas ideias para novas lições ou exercícios e nos informe como podemos melhorar.
 
-- Traduza para o seu idioma, cada capítulo possui um subdiretório de *translations*, se você deseja ajudar em relação a isso, crie a seguinte estrutura:
+- Traduza para o seu idioma, cada capítulo possui um subdiretório de _translations_, se você deseja ajudar em relação a isso, crie a seguinte estrutura:
 
 ```text
   Capítulo NN/ <== número do capítulo da lição. Ex:: `00-course-setup`
@@ -67,22 +66,22 @@ Aqui estão maneiras de contribuir para este curso:
 
 ## 🗃️ Lições
 
-|       | Link da Lição                                | Conceitos Ensinados                                  | Aprendizado Objetivo                                 |
-| :---: | :------------------------------------------: | :-------------------------------------------------: | ---------------------------------------------------- |
-| 00    | [Introdução ao Curso - Como Começar Este Curso](../../00-course-setup/translations/pt-br/README.md?WT.mc_id=academic-105485-koreyst) | Configuração técnica e estrutura do curso | Te preparar para o sucesso ao aprender neste curso |
-| 01    | [Introdução à IA Generativa e LLMs](../../01-introduction-to-genai/translations/pt-br/README.md?WT.mc_id=academic-105485-koreyst) | **Conceito**: IA Generativa e como chegamos à atual paisagem tecnológica | Compreensão do que é a IA Generativa e como os Modelos de Linguagem de Grande Porte (LLMs) funcionam |
-| 02    | [Explorando e Comparando Diferentes LLMs](../../02-exploring-and-comparing-different-llms/translations/pt-br/README.md?WT.mc_id=academic-105485-koreyst) | **Conceito**: Testar, iteragir e comparar diferentes Modelos de Linguagem de Grande Porte | Selecionar o modelo correto para o seu caso de uso |
-| 03    | [Uso Responsável da IA Generativa](../../03-using-generative-ai-responsibly/translations/pt-br/README.md?WT.mc_id=academic-105485-koreyst) | **Conceito**: Compreensão das limitações dos modelos fundamentais e dos riscos da IA | Aprender a construir Aplicações de IA Generativa de forma responsável |
-| 04    | [Fundamentos da Engenharia de Prompt](../../04-prompt-engineering-fundamentals/translations/pt-br/README.md?WT.mc_id=academic-105485-koreyst) | **Código/Conceito**: Aplicação das Melhores Práticas de Engenharia de Prompt | Compreensão da estrutura e uso de prompts |
-| 05    | [Criação de Prompts Avançados](../../05-advanced-prompts/translations/pt-br/README.md?WT.mc_id=academic-105485-koreyst) | **Código/Conceito**: Amplie seu conhecimento em Engenharia de Prompts aplicando diferentes técnicas aos seus prompts | Aplicar técnicas de Engenharia de Prompts que melhorem os resultados dos seus prompts |
-| 06    | [Criando Aplicações de Geração de Texto](../../06-text-generation-apps/translations/pt-br/README.md?WT.mc_id=academic-105485-koreyst) | **Código**: Criar uma aplicação de geração de texto usando o Azure OpenAI | Compreender como usar eficientemente `tokens` e `temperatura` para variar a saída do modelo |
-| 07    | [Criando Aplicações de Chat](../../07-building-chat-applications/translations/pt-br/README.md?WT.mc_id=academic-105485-koreyst) | **Código**: Técnicas para criar e integrar eficientemente aplicações de chat | Identificar métricas-chave e considerações para monitorar e manter a qualidade de aplicaççoes de chat com IA |
-| 08    | [Criando Aplicações de Busca com Bancos de Dados Vetoriais](../../08-building-search-applications/translations/pt-br/README.md?WT.mc_id=academic-105485-koreyst) | **Código**: Busca `Semântica vs. por Palavras-chave`. O que são incorporações de texto e como elas se aplicam à busca | Criar uma aplicação que usa incorporações para buscar dados. |
-| 09    | [Criando Aplicações de Geração de Imagens](../../09-building-image-applications/translations/pt-br/README.md?WT.mc_id=academic-105485-koreyst) | **Código**: Geração de imagens e por que é útil na criação de aplicações | Criar Aplicações de geração de imagens |
-| 10    | [Criando Aplicações de IA com Pouco Código](../../10-building-low-code-ai-applications/translations/pt-br/README.md?WT.mc_id=academic-105485-koreyst) | **Low Code**: Introdução à IA Generativa no `Power Platform` | Criar Aplicações de rastreamento de tarefas de estudantes para nossa startup educacional com Low Code |
-| 11    | [Integração de Aplicações Externas com Chamadas de Função](../../11-integrating-with-function-calling/translations/pt-br/README.md?WT.mc_id=academic-105485-koreyst) | **Código**: O que é a chamada de função e seus casos de uso para aplicações | Configurar uma chamada de função para recuperar dados de uma API externa |
-| 12    | [Design de UX para Aplicações de IA](../../12-designing-ux-for-ai-applications/translations/pt-br/README.md?WT.mc_id=academic-105485-koreyst) | **Conceito**: Design de Aplicações de IA para Confiança e Transparência | Aplicar princípios de design de UX ao desenvolver Aplicações de IA Generativa |
-| xx    | [Continue seu Aprendizado](../../13-continued-learning/translations/pt-br/README.md?WT.mc_id=academic-105485-koreyst) | Links para continuar seu aprendizado a partir de cada lição! | Aperfeiçoar suas habilidades em IA Generativa | |
+|  | Link da Lição | Conceitos Ensinados | Aprendizado Objetivo |
+| :-: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------: | ------------------------------------------------------------------------------------------------------------ |
+| 00  | [Introdução ao Curso - Como Começar Este Curso](../../00-course-setup/translations/pt-br/README.md?WT.mc_id=academic-105485-koreyst) | Configuração técnica e estrutura do curso | Te preparar para o sucesso ao aprender neste curso |
+| 01  | [Introdução à IA Generativa e LLMs](../../01-introduction-to-genai/translations/pt-br/README.md?WT.mc_id=academic-105485-koreyst) | **Conceito**: IA Generativa e como chegamos à atual paisagem tecnológica | Compreensão do que é a IA Generativa e como os Modelos de Linguagem de Grande Porte (LLMs) funcionam |
+| 02  | [Explorando e Comparando Diferentes LLMs](../../02-exploring-and-comparing-different-llms/translations/pt-br/README.md?WT.mc_id=academic-105485-koreyst) | **Conceito**: Testar, iteragir e comparar diferentes Modelos de Linguagem de Grande Porte | Selecionar o modelo correto para o seu caso de uso |
+| 03  | [Uso Responsável da IA Generativa](../../03-using-generative-ai-responsibly/translations/pt-br/README.md?WT.mc_id=academic-105485-koreyst) | **Conceito**: Compreensão das limitações dos modelos fundamentais e dos riscos da IA | Aprender a construir Aplicações de IA Generativa de forma responsável |
+| 04  | [Fundamentos da Engenharia de Prompt](../../04-prompt-engineering-fundamentals/translations/pt-br/README.md?WT.mc_id=academic-105485-koreyst) | **Código/Conceito**: Aplicação das Melhores Práticas de Engenharia de Prompt | Compreensão da estrutura e uso de prompts |
+| 05  | [Criação de Prompts Avançados](../../05-advanced-prompts/translations/pt-br/README.md?WT.mc_id=academic-105485-koreyst) | **Código/Conceito**: Amplie seu conhecimento em Engenharia de Prompts aplicando diferentes técnicas aos seus prompts | Aplicar técnicas de Engenharia de Prompts que melhorem os resultados dos seus prompts |
+| 06  | [Criando Aplicações de Geração de Texto](../../06-text-generation-apps/translations/pt-br/README.md?WT.mc_id=academic-105485-koreyst) | **Código**: Criar uma aplicação de geração de texto usando o Azure OpenAI | Compreender como usar eficientemente `tokens` e `temperatura` para variar a saída do modelo |
+| 07  | [Criando Aplicações de Chat](../../07-building-chat-applications/translations/pt-br/README.md?WT.mc_id=academic-105485-koreyst) | **Código**: Técnicas para criar e integrar eficientemente aplicações de chat | Identificar métricas-chave e considerações para monitorar e manter a qualidade de aplicações de chat com IA |
+| 08  | [Criando Aplicações de Busca com Bancos de Dados Vetoriais](../../08-building-search-applications/translations/pt-br/README.md?WT.mc_id=academic-105485-koreyst) | **Código**: Busca `Semântica vs. por Palavras-chave`. O que são incorporações de texto e como elas se aplicam à busca | Criar uma aplicação que usa incorporações para buscar dados. |
+| 09  | [Criando Aplicações de Geração de Imagens](../../09-building-image-applications/translations/pt-br/README.md?WT.mc_id=academic-105485-koreyst) | **Código**: Geração de imagens e por que é útil na criação de aplicações | Criar Aplicações de geração de imagens |
+| 10  | [Criando Aplicações de IA com Pouco Código](../../10-building-low-code-ai-applications/translations/pt-br/README.md?WT.mc_id=academic-105485-koreyst) | **Low Code**: Introdução à IA Generativa no `Power Platform` | Criar Aplicações de rastreamento de tarefas de estudantes para nossa startup educacional com Low Code |
+| 11  | [Integração de Aplicações Externas com Chamadas de Função](../../11-integrating-with-function-calling/translations/pt-br/README.md?WT.mc_id=academic-105485-koreyst) | **Código**: O que é a chamada de função e seus casos de uso para aplicações | Configurar uma chamada de função para recuperar dados de uma API externa |
+| 12  | [Design de UX para Aplicações de IA](../../12-designing-ux-for-ai-applications/translations/pt-br/README.md?WT.mc_id=academic-105485-koreyst) | **Conceito**: Design de Aplicações de IA para Confiança e Transparência | Aplicar princípios de design de UX ao desenvolver Aplicações de IA Generativa |
+| xx  | [Continue seu Aprendizado](https://aka.ms/genai-collection?WT.mc_id=academic-105485-koreyst) | Links para continuar seu aprendizado a partir de cada lição! | Aperfeiçoar suas habilidades em IA Generativa |
 
 ## 🎒 Outros Cursos
 

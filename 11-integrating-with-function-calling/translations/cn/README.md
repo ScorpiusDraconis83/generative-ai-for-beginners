@@ -1,20 +1,18 @@
 # 第十一章：为生成式 AI 添加 function calling
 
-![chapter image](../../images/11-lesson-banner.png?WT.mc_id=academic-105485-koreyst)
+[![Integrating with function calling](../../images/11-lesson-banner.png?WT.mc_id=academic-105485-koreyst)](https://aka.ms/gen-ai-lesson11-gh?WT.mc_id=academic-105485-koreyst)
 
 到目前为止，您在之前的章节中已经学到了相当多的知识。 然而，我们可以进一步改进。 可以解决的一些问题是如何获得更一致的响应格式，以便更轻松地处理下游响应。 此外，我们可能希望添加来自其他来源的数据以进一步丰富我们的应用程序。
 
 上述问题正是本章要解决的问题。
 
-> **导学视频敬请期待**
-
-## 本章概述 
+## 本章概述
 
 在本章中，您将学习到:
 
 - 解释什么是 function calling 及其用例。
 - 使用 Azure OpenAI 创建 function calling。
-- 如何将function calling 集成到应用程序中。
+- 如何将 function calling 集成到应用程序中。
 
 ## 学习目标
 
@@ -23,7 +21,7 @@
 - 解释使用 function calling 的目的。
 - 使用 Azure OpenAI Service 设置 function calling 。
 - 为您的应用程序用例设计有效的 function calling 。
-。
+  。
 
 ## 场景：通过功能改进我们的聊天机器人
 
@@ -48,7 +46,7 @@ Function Calling 是 Azure Open AI Service 的一项功能，旨在克服以下�
 
 ## 通过场景说明问题
 
-> 如果您想运行以下场景，我们建议您创建一个文件 *Notebook.ipynb* 并将以下代码粘贴到单独的代码单元格中。 您也可以继续阅读，因为我们正在尝试说明函数可以帮助解决问题的问题。
+> 如果您想运行以下场景，我们建议您创建一个文件 _Notebook.ipynb_ 并将以下代码粘贴到单独的代码单元格中。 您也可以继续阅读，因为我们正在尝试说明函数可以帮助解决问题的问题。
 
 让我们看一下说明响应格式问题的示例：
 
@@ -72,7 +70,7 @@ Function Calling 是 Azure Open AI Service 的一项功能，旨在克服以下�
 
    ```python
    student_1_description="Emily Johnson is a sophomore majoring in computer science at Duke University. She has a 3.7 GPA. Emily is an active member of the university's Chess Club and Debate Team. She hopes to pursue a career in software engineering after graduating."
-  
+
    student_2_description = "Michael Lee is a sophomore majoring in computer science at Stanford University. He has a 3.8 GPA. Michael is known for his programming skills and is an active member of the university's Robotics Club. He hopes to pursue a career in artificial intelligence after finishing his studies."
    ```
 
@@ -115,22 +113,22 @@ Function Calling 是 Azure Open AI Service 的一项功能，旨在克服以下�
    ```python
    # response from prompt one
    openai_response1 = openai.ChatCompletion.create(
-     engine="gpt-function",    
+     engine="gpt-function",
      messages = [{'role': 'user', 'content': prompt1}]
    )
-   openai_response1['choices'][0]['message']['content'] 
+   openai_response1['choices'][0]['message']['content']
 
    # response from prompt two
    openai_response2 = openai.ChatCompletion.create(
      engine="gpt-function",
      messages = [{'role': 'user', 'content': prompt2 }]
    )
-   openai_response2['choices'][0]['message']['content'] 
+   openai_response2['choices'][0]['message']['content']
    ```
 
 现在我们可以将两个请求发送到 LLM 并通过查找 `openai_response1['choices'][0]['message']['content']` 来检查我们收到的响应。
 
-1. 最后，我们可以通过调用 `json.loads` 将响应结果转换为JSON格式：
+1. 最后，我们可以通过调用 `json.loads` 将响应结果转换为 JSON 格式：
 
    ```python
    # Loading the response as a JSON object
@@ -141,28 +139,32 @@ Function Calling 是 Azure Open AI Service 的一项功能，旨在克服以下�
    Response 1:
 
    ```json
-   {'name': 'Emily Johnson',
-    'major': 'computer science',
-    'school': 'Duke University',
-    'grades': '3.7',
-    'club': 'Chess Club'}
+   {
+     "name": "Emily Johnson",
+     "major": "computer science",
+     "school": "Duke University",
+     "grades": "3.7",
+     "club": "Chess Club"
+   }
    ```
 
    Response 2:
 
    ```json
-   {'name': 'Michael Lee',
-    'major': 'computer science',
-    'school': 'Stanford University',
-    'grades': '3.8 GPA',
-    'club': 'Robotics Club'}
+   {
+     "name": "Michael Lee",
+     "major": "computer science",
+     "school": "Stanford University",
+     "grades": "3.8 GPA",
+     "club": "Robotics Club"
+   }
    ```
 
    尽管提示相同且描述相似，但我们看到 `Grades` 属性值的格式不同，例如有时我们可以获得“3.7”或“3.7 GPA”格式。
 
    这个结果是因为 LLM 以书面提示的形式获取非结构化数据并返回非结构化数据。 我们需要有一个结构化的格式，以便我们知道在存储或使用这些数据时会发生什么
 
-那么我们该如何解决格式化问题呢？ 通过使用 function calling，我们可以确保收到返回的结构化数据。 当使用 function calling 时，LLM 实际上并不调用或运行任何函数。 相反，我们为 LLMs 创建了一个响应结构。 然后，我们使用这些结构化响应来了解要在应用程序中运行哪些功能。.  
+那么我们该如何解决格式化问题呢？ 通过使用 function calling，我们可以确保收到返回的结构化数据。 当使用 function calling 时，LLM 实际上并不调用或运行任何函数。 相反，我们为 LLMs 创建了一个响应结构。 然后，我们使用这些结构化响应来了解要在应用程序中运行哪些功能。.
 
 ![function flow](../../images/Function-Flow.png?WT.mc_id=academic-105485-koreyst)
 
@@ -178,7 +180,7 @@ Function Calling 是 Azure Open AI Service 的一项功能，旨在克服以下�
 
 - **创建结构化数据**。 用户可以获取一段文本或 CSV 并使用 LLM 从中提取重要信息。 例如，学生可以将有关和平协议的维基百科文章转换为创建人工智能闪存卡。 这可以通过使用名为 'get_important_facts（agreement_name：string，date_signed：string，partys_involved：list）' 的函数来完成
 
-## 创建您的第一个 function calling 
+## 创建您的第一个 function calling
 
 创建 function calling 的过程包括 3 个主要步骤：
 
@@ -192,8 +194,7 @@ Function Calling 是 Azure Open AI Service 的一项功能，旨在克服以下�
 
 Step 1 是创建用户消息。 这可以通过获取文本输入的值来动态分配，或者您可以在此处分配一个值。 如果这是您第一次使用聊天完成 API，我们需要定义消息的“角色”和“内容”。
 
- `role` 可以是`system` （创建规则）、`assistant` 模型）或`user`最终用户）。 对于函数调用，我们将其指定为 `user` 和一个示例问题。
-
+`role` 可以是`system` （创建规则）、`assistant` 模型）或`user`最终用户）。 对于函数调用，我们将其指定为 `user` 和一个示例问题。
 
 ```python
 messages= [ {"role": "user", "content": "Find me a good course for a beginner student to learn Azure."} ]
@@ -208,7 +209,6 @@ messages= [ {"role": "user", "content": "Find me a good course for a beginner st
 > **重要**：功能包含在发给 LLM 的系统消息中，并将包含在您拥有的可用 tokens 数量中。
 
 下面，我们将函数创建为项目数组。 每个项目都是一个函数，并具有属性 `name`, `description` 和 `parameters`：
-
 
 ```python
 functions = [
@@ -244,11 +244,11 @@ functions = [
 - `name` - 我们想要调用的函数的名称。
 - `description` - 这是函数如何工作的描述。 在这里，重要的是要具体和清晰。
 - `parameters` - 您希望模型在其响应中生成的值和格式的列表。 参数数组由项目组成，其中项目具有以下属性：
-    1. `type` - 将存储属性的数据类型。
-    2. `properties` - 模型将用于其响应的特定值的列表
-       1. `name` - 键是模型将在其格式化响应中使用的属性的名称，例如，`product`。
-       2. `type` - 该属性的数据类型，例如，`string`。
-       3. `description` - 特定属性的描述。
+  1. `type` - 将存储属性的数据类型。
+  2. `properties` - 模型将用于其响应的特定值的列表
+     1. `name` - 键是模型将在其格式化响应中使用的属性的名称，例如，`product`。
+     2. `type` - 该属性的数据类型，例如，`string`。
+     3. `description` - 特定属性的描述。
 
 还有一个可选属性“required” - 完成 function call 所需的属性。
 
@@ -260,12 +260,11 @@ functions = [
 
 下面是我们调用 `ChatCompletion.create` 的一些代码，请注意我们如何设置 `functions=functions` 和 `function_call="auto"` ，从而让 LLM 选择何时调用我们提供的函数：
 
-
 ```python
-response = openai.ChatCompletion.create( engine="gpt-function", 
-                                        messages=messages, 
-                                        functions=functions, 
-                                        function_call="auto", ) 
+response = openai.ChatCompletion.create( engine="gpt-function",
+                                        messages=messages,
+                                        functions=functions,
+                                        function_call="auto", )
 
 print(response['choices'][0]['message'])
 ```
@@ -343,13 +342,13 @@ messages= [ {"role": "user", "content": "Find me a good course for a beginner st
      print(response_message.get("function_call"))
      print()
 
-    # Call the function. 
+    # Call the function.
     function_name = response_message["function_call"]["name"]
 
     available_functions = {
             "search_courses": search_courses,
     }
-    function_to_call = available_functions[function_name] 
+    function_to_call = available_functions[function_name]
 
     function_args = json.loads(response_message["function_call"]["arguments"])
     function_response = function_to_call(**function_args)
@@ -382,10 +381,10 @@ messages= [ {"role": "user", "content": "Find me a good course for a beginner st
    These three lines, ensure we extract the function name, the arguments and make the call:
 
    ```python
-   function_to_call = available_functions[function_name] 
+   function_to_call = available_functions[function_name]
 
    function_args = json.loads(response_message["function_call"]["arguments"])
-   function_response = function_to_call(**function_args) 
+   function_response = function_to_call(**function_args)
    ```
 
    以下是运行代码的输出：
@@ -399,16 +398,17 @@ messages= [ {"role": "user", "content": "Find me a good course for a beginner st
    }
 
    Output of function call:
-   [{'title': 'Describe concepts of cryptography', 'url': 'https://learn.microsoft.com/en-us/training/modules/describe-concepts-of-cryptography/? 
-   WT.mc_id=api_CatalogApi'}, {'title': 'Introduction to audio classification with TensorFlow', 'url': 'https://learn.microsoft.com/en- 
-   us/training/modules/intro-audio-classification-tensorflow/?WT.mc_id=api_CatalogApi'}, {'title': 'Design a Performant Data Model in Azure SQL 
-   Database with Azure Data Studio', 'url': 'https://learn.microsoft.com/en-us/training/modules/design-a-data-model-with-ads/? 
-   WT.mc_id=api_CatalogApi'}, {'title': 'Getting started with the Microsoft Cloud Adoption Framework for Azure', 'url': 
-   'https://learn.microsoft.com/en-us/training/modules/cloud-adoption-framework-getting-started/?WT.mc_id=api_CatalogApi'}, {'title': 'Set up the 
+   [{'title': 'Describe concepts of cryptography', 'url': 'https://learn.microsoft.com/en-us/training/modules/describe-concepts-of-cryptography/?
+   WT.mc_id=api_CatalogApi'}, {'title': 'Introduction to audio classification with TensorFlow', 'url': 'https://learn.microsoft.com/en-
+   us/training/modules/intro-audio-classification-tensorflow/?WT.mc_id=api_CatalogApi'}, {'title': 'Design a Performant Data Model in Azure SQL
+   Database with Azure Data Studio', 'url': 'https://learn.microsoft.com/en-us/training/modules/design-a-data-model-with-ads/?
+   WT.mc_id=api_CatalogApi'}, {'title': 'Getting started with the Microsoft Cloud Adoption Framework for Azure', 'url':
+   'https://learn.microsoft.com/en-us/training/modules/cloud-adoption-framework-getting-started/?WT.mc_id=api_CatalogApi'}, {'title': 'Set up the
    Rust development environment', 'url': 'https://learn.microsoft.com/en-us/training/modules/rust-set-up-environment/?WT.mc_id=api_CatalogApi'}]
-   <class 'str'> 
+   <class 'str'>
    ```
-3. 现在我们将向 LLM 发送更新后的消息 `messages` ，以便我们可以接收自然语言响应，而不是 API JSON 格式的响应。
+
+4. 现在我们将向 LLM 发送更新后的消息 `messages` ，以便我们可以接收自然语言响应，而不是 API JSON 格式的响应。
 
    ```python
    print("Messages in next request:")
@@ -436,13 +436,14 @@ messages= [ {"role": "user", "content": "Find me a good course for a beginner st
    }
 
    ```
+
 ## 作业
 
 要继续学习 Azure 开放 AI function calling，您可以构建：
 
 - 该功能的更多参数可以帮助学习者找到更多课程。 您可以在此处找到可用的 API 参数：
 - 创建另一个函数调用，从学习者那里获取更多信息，例如他们的母语
-- 当函数调用和/或API调用未返回任何合适的课程时创建错误处理
+- 当函数调用和/或 API 调用未返回任何合适的课程时创建错误处理
 
   提示：按照 [Learn API 参考文档](https://learn.microsoft.com/training/support/catalog-api-developer-reference?WT.mc_id=academic-105485-koreyst) 页面了解此操作的方式和和哪些数据是可用的
 
@@ -450,6 +451,6 @@ messages= [ {"role": "user", "content": "Find me a good course for a beginner st
 
 ## 继续学习
 
-想要了解有关 Function Calling 的更多信息？ 转至[进阶学习的页面](../../../13-continued-learning/translations/cn/README.md?WT.mc_id=academic-105485-koreyst) 查找有关此主章节的其他学习资源。
+想要了解有关 Function Calling 的更多信息？ 转至[进阶学习的页面](https://aka.ms/genai-collection?WT.mc_id=academic-105485-koreyst) 查找有关此主章节的其他学习资源。
 
 前往第十二章，我们将学习 [为人工智能应用程序添加用户体验](../../../12-designing-ux-for-ai-applications/translations/cn/README.md?WT.mc_id=academic-105485-koreyst)!
